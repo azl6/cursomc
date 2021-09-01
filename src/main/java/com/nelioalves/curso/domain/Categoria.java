@@ -1,8 +1,9 @@
 package com.nelioalves.curso.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Categoria {
+public class Categoria implements Serializable {
     //criar categoria nos padrões
     //trocar lá na função pra retornar a lista de 2 categorias: info e escritório
     //testar no postman a url localhost:8080/categorias

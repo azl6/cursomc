@@ -1,13 +1,20 @@
 package com.nelioalves.curso.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
 public class Categoria implements Serializable {
     //criar categoria nos padrões
     //trocar lá na função pra retornar a lista de 2 categorias: info e escritório
     //testar no postman a url localhost:8080/categorias
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
 

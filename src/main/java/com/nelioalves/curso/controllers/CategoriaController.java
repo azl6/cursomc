@@ -1,4 +1,4 @@
-package com.nelioalves.curso.resources;
+package com.nelioalves.curso.controllers;
 
 import com.nelioalves.curso.domain.Categoria;
 import com.nelioalves.curso.services.CategoriaService;
@@ -9,12 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @RestController
 @RequestMapping(value = "/categorias")
-public class CategoriaResource {
+public class CategoriaController {
 
     @Autowired
     private CategoriaService service;

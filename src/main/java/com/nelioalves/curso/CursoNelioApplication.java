@@ -30,7 +30,6 @@ public class CursoNelioApplication implements CommandLineRunner {
 		Categoria cat1 = new Categoria("Informática");
 		Categoria cat2 = new Categoria("Escritório");
 
-
 		Produto p1 = new Produto("Computador", 2000d);
 		Produto p2 = new Produto("Impressora", 800d);
 		Produto p3 = new Produto( "Mouse", 80d);

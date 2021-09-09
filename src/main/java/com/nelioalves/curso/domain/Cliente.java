@@ -2,17 +2,26 @@ package com.nelioalves.curso.domain;
 
 import com.nelioalves.curso.enums.TipoCliente;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
+@Entity
 public class Cliente implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String email;
     private String cpfOuCnpj;
     private Integer tipo;
+
+    @ElementCollection
+    @CollectionTable(name = "TELEFONE")
     private Set<String> telefone = new HashSet<>();
 
+    @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
 
     public Cliente(){
@@ -43,7 +52,7 @@ public class Cliente implements Serializable {
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
-        this.tipo = tipo;
+        this.tipo = tipo.getCod();
     }
 
     public Integer getId() {

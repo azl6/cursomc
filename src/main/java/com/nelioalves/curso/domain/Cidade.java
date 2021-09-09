@@ -14,6 +14,7 @@ public class Cidade implements Serializable {
     private Integer id;
     private String nome;
 
+    //essa notação leva em conta o nome da classe
     @ManyToOne
     @JoinColumn(name = "estado_id")
     private Estado estado;

@@ -2,8 +2,10 @@ package com.nelioalves.curso.domain;
 
 import com.nelioalves.curso.enums.EstadoPagamento;
 
+import javax.persistence.Entity;
 import java.util.Date;
 
+@Entity
 public class PagamentoComBoleto extends Pagamento {
     private Date dataVencimento;
     private Date dataPagamento;
@@ -16,8 +18,8 @@ public class PagamentoComBoleto extends Pagamento {
         this.dataPagamento = dataPagamento;
     }
 
-    public PagamentoComBoleto(Integer id, EstadoPagamento estado, Pedido pedido, Date dataVencimento, Date dataPagamento) {
-        super(id, estado, pedido);
+    public PagamentoComBoleto(EstadoPagamento estado, Pedido pedido, Date dataVencimento, Date dataPagamento) {
+        super(estado, pedido);
         this.dataVencimento = dataVencimento;
         this.dataPagamento = dataPagamento;
     }

@@ -2,6 +2,9 @@ package com.nelioalves.curso.domain;
 
 import com.nelioalves.curso.enums.EstadoPagamento;
 
+import javax.persistence.Entity;
+
+@Entity
 public class PagamentoComCartao extends Pagamento {
 
     private Integer numeroDeParcelas;
@@ -13,8 +16,8 @@ public class PagamentoComCartao extends Pagamento {
         this.numeroDeParcelas = numeroDeParcelas;
     }
 
-    public PagamentoComCartao(Integer id, EstadoPagamento estado, Pedido pedido, Integer numeroDeParcelas) {
-        super(id, estado, pedido);
+    public PagamentoComCartao(EstadoPagamento estado, Pedido pedido, Integer numeroDeParcelas) {
+        super(estado, pedido);
         this.numeroDeParcelas = numeroDeParcelas;
     }
 

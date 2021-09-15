@@ -1,0 +1,43 @@
+Neste arquivo, estão informações sobre o funcionamento dos recursos aqui utilizados
+
+Dependências:
+
+Spring Boot Starter Web - Fornece recursos para a utilização do protocolo HTTP (?)
+
+Spring Boot Starter Data JPA - Possibilita a utilização do JPA para criação automática das tabelas, assim
+como seus respectivos relacionamentos
+
+H2 Database -
+
+Spring Boot Devtools -
+
+Estrutura:
+
+Controllers -
+Domain -
+Repositories -
+Services -
+
+Notações:
+
+@Entity
+@Id
+@GeneratedValue
+@JsonBackReference
+@JsonManagedReference
+@ManyToMany
+@OneToMany
+@ManyToOne
+@JoinTable
+@JoinCollumn
+@Autowired
+@ElementCollection
+@CollectionTable
+@RestController
+@RequestMapping
+@Service
+
+
+
+
+

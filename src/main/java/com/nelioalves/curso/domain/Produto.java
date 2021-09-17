@@ -22,7 +22,7 @@ public class Produto implements Serializable {
     private Set<ItemPedido> itens = new HashSet<>();
 
     //aula 18
-    @JsonBackReference
+    @JsonIgnore
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "PRODUTO_CATEGORIA",
     joinColumns = @JoinColumn(name = "produto_id"),//esse nome eh o nome lá na tabela da coluna

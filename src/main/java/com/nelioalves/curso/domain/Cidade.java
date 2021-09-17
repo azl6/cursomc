@@ -18,7 +18,6 @@ public class Cidade implements Serializable {
 
     //essa notação leva em conta o nome da classe
     @ManyToOne
-    @JsonManagedReference
     @JoinColumn(name = "estado_id")
     private Estado estado;
 

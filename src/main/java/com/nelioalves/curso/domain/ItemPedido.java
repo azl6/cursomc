@@ -1,9 +1,14 @@
 package com.nelioalves.curso.domain;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
 public class ItemPedido implements Serializable {
+
+    @EmbeddedId
     private ItemPedidoPK id = new ItemPedidoPK();
     private Double desconto;
     private Integer quantidade;
@@ -15,6 +20,9 @@ public class ItemPedido implements Serializable {
         this.desconto = desconto;
         this.quantidade = quantidade;
         this.preco = preco;
+    }
+
+    public ItemPedido() {
     }
 
     public ItemPedidoPK getId() {

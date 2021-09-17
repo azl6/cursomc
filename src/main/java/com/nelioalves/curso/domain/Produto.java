@@ -16,6 +16,7 @@ public class Produto implements Serializable {
     private String nome;
     private Double preço;
 
+    @OneToMany(mappedBy = "id.produto")
     private Set<ItemPedido> itens = new HashSet<>();
 
     //aula 18

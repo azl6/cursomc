@@ -19,12 +19,17 @@ public class CategoriaService {
     @Autowired
     private JpaRepository<Categoria, Integer> repo;
 
-    public Categoria buscar(Integer id) {
+    public Categoria find(Integer id) {
         Optional<Categoria> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(1, "Página não encontrada!"));
     }
 
     public Categoria insert(Categoria obj){
+        return repo.save(obj);
+    }
+
+    public Categoria update(Categoria obj){
+        find(obj.getId());
         return repo.save(obj);
     }
 }

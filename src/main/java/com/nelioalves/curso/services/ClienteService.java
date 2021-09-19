@@ -15,7 +15,7 @@ public class ClienteService {
     @Autowired
     private JpaRepository<Cliente, Integer> repo;
 
-    public Cliente buscar(Integer id) {
+    public Cliente find(Integer id) {
         Optional<Cliente> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(1, "Página não encontrada!"));
     }

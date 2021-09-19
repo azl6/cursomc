@@ -1,6 +1,7 @@
 package com.nelioalves.curso.services;
 
 import com.nelioalves.curso.domain.Categoria;
+import com.nelioalves.curso.dto.CategoriaDTO;
 import com.nelioalves.curso.exceptions.DataIntegrityException;
 import com.nelioalves.curso.repositories.CategoriaRepository;
 import org.hibernate.ObjectNotFoundException;
@@ -57,5 +58,9 @@ public class CategoriaService {
         PageRequest pageRequest = PageRequest.of(page, linesPerPage, Sort.Direction.valueOf(direction),
                 orderBy);
         return repo.findAll(pageRequest);
+    }
+
+    public Categoria fromDto(CategoriaDTO objDto){
+        return new Categoria(objDto.getId(), objDto.getNome());
     }
 }

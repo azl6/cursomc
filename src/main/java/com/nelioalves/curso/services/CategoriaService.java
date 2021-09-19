@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 //aula 17
@@ -42,6 +43,9 @@ public class CategoriaService {
         }catch(DataIntegrityViolationException e){
         throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
         }
+    }
 
+    public List<Categoria> findAll() {
+        return repo.findAll();
     }
 }

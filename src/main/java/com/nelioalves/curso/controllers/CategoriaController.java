@@ -35,6 +35,9 @@ public class CategoriaController {
                     "/{id}").buildAndExpand(obj.getId()).toUri();
             return ResponseEntity.created(uri).build();
         }
+
+        //o VOID do responseEntity é pq a requisição retorna um corpo vazio
+        //por isso o .nocontent.build
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Void> update(@Valid @RequestBody CategoriaDTO objDto, @PathVariable Integer id){
         Categoria obj = service.fromDto(objDto);

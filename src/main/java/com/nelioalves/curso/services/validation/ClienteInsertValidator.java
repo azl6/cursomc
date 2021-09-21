@@ -21,8 +21,6 @@ import javax.validation.ConstraintValidatorContext;
         public void initialize(ClienteInsert ann) {
         }
 
-
-
         @Override
         public boolean isValid(ClienteNewDTO objDto, ConstraintValidatorContext context) {
             List<FieldMessage> list = new ArrayList<>();

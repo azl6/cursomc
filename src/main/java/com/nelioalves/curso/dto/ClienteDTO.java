@@ -1,11 +1,13 @@
 package com.nelioalves.curso.dto;
 
 import com.nelioalves.curso.domain.Cliente;
+import com.nelioalves.curso.services.validation.ClienteUpdate;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+@ClienteUpdate
 public class ClienteDTO {
 
     private Integer id;

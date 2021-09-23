@@ -1,5 +1,7 @@
 package com.nelioalves.curso.dto;
 
+import com.nelioalves.curso.domain.Produto;
+
 import java.io.Serializable;
 
 public class ProdutoDTO implements Serializable {
@@ -8,6 +10,12 @@ public class ProdutoDTO implements Serializable {
     private Double preço;
 
     public ProdutoDTO(){
+    }
+
+    public ProdutoDTO(Produto obj) {
+        this.id = obj.getId();
+        this.nome = obj.getNome();
+        this.preço = obj.getPreço();
     }
 
     public Integer getId() {

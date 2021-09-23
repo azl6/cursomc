@@ -58,6 +58,13 @@ public class Pedido implements Serializable {
         return Objects.equals(id, pedido.id);
     }
 
+    public double getValorTotal(){
+        double soma = 0.0;
+        for(ItemPedido ip : itens){
+            soma += ip.getSubTotal();
+        }
+        return soma;
+    }
     @Override
     public int hashCode() {
         return Objects.hash(id);

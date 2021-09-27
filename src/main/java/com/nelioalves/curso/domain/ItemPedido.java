@@ -31,15 +31,22 @@ public class ItemPedido implements Serializable {
     public ItemPedidoPK getId() {
         return id;
     }
+
     @JsonIgnore
     public Pedido getPedido(){
         return id.getPedido();
     }
 
+    public void setPedido(Pedido pedido){
+        this.id.setPedido(pedido);
+    }
     public Produto getProduto(){
         return id.getProduto();
     }
 
+    public void setProduto(Produto produto){
+        this.id.setProduto(produto);
+    }
     public void setId(ItemPedidoPK id) {
         this.id = id;
     }

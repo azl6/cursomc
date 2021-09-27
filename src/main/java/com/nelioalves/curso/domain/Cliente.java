@@ -64,11 +64,7 @@ public class Cliente implements Serializable {
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = (tipo == null) ? null : tipo.getCod();
     }
-
-    public void setTipo(Integer tipo) {
-        this.tipo = tipo;
-    }
-
+    
     public List<Pedido> getPedidos() {
         return pedidos;
     }

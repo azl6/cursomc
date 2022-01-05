@@ -1,6 +1,8 @@
 package com.nelioalves.curso.config;
 
 import com.nelioalves.curso.services.DBService;
+import com.nelioalves.curso.services.EmailService;
+import com.nelioalves.curso.services.SmtpEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -26,5 +28,10 @@ public class DevConfig {
         
         dbService.instantiateTestDatabase();
         return true;
+    }
+
+    @Bean
+    public EmailService emailService(){
+        return new SmtpEmailService();
     }
 }

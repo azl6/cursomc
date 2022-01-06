@@ -23,6 +23,9 @@ public class Cliente implements Serializable {
     private String cpfOuCnpj;
     private Integer tipo;
 
+    @JsonIgnore
+    private String senha;
+
     @ElementCollection
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefone = new HashSet<>();
@@ -50,12 +53,21 @@ public class Cliente implements Serializable {
         return Objects.hash(id);
     }
 
-    public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
+    public Cliente(String nome, String email, String cpfOuCnpj, TipoCliente tipo, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.cpfOuCnpj = cpfOuCnpj;
+        this.tipo = (tipo == null) ? null : tipo.getCod();
+        this.senha = senha;
+    }
+
+    public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, String senha) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = (tipo == null) ? null : tipo.getCod();
+        this.senha = senha;
     }
 
     public Cliente(String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
@@ -64,7 +76,19 @@ public class Cliente implements Serializable {
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = (tipo == null) ? null : tipo.getCod();
     }
-    
+
+    public void setTipo(Integer tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public List<Pedido> getPedidos() {
         return pedidos;
     }

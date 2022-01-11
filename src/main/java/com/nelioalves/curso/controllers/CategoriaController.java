@@ -6,6 +6,7 @@ import com.nelioalves.curso.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -27,6 +28,7 @@ public class CategoriaController {
         return ResponseEntity.ok().body(obj);
         }
 
+        @PreAuthorize("hasAnyRole('ADMIN')")
         @RequestMapping(method = RequestMethod.POST)
         public ResponseEntity<Void> insert(@Valid @RequestBody CategoriaDTO objDto){
             Categoria obj = service.fromDto(objDto);
@@ -38,7 +40,8 @@ public class CategoriaController {
 
         //o VOID do responseEntity é pq a requisição retorna um corpo vazio
         //por isso o .nocontent.build
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+        @PreAuthorize("hasAnyRole('ADMIN')")
+        @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Void> update(@Valid @RequestBody CategoriaDTO objDto, @PathVariable Integer id){
         Categoria obj = service.fromDto(objDto);
         obj.setId(id);
@@ -46,6 +49,7 @@ public class CategoriaController {
         return ResponseEntity.noContent().build();
         }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable Integer id){
 

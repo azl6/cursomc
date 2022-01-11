@@ -4,11 +4,14 @@ import com.nelioalves.curso.domain.*;
 import com.nelioalves.curso.domain.Cliente;
 import com.nelioalves.curso.dto.ClienteDTO;
 import com.nelioalves.curso.dto.ClienteNewDTO;
+import com.nelioalves.curso.enums.Perfil;
 import com.nelioalves.curso.enums.TipoCliente;
+import com.nelioalves.curso.exceptions.AuthorizationException;
 import com.nelioalves.curso.exceptions.DataIntegrityException;
 import com.nelioalves.curso.repositories.CidadeRepository;
 import com.nelioalves.curso.repositories.ClienteRepository;
 import com.nelioalves.curso.repositories.EnderecoRepository;
+import com.nelioalves.curso.security.UserSS;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -36,6 +39,11 @@ public class ClienteService {
     private BCryptPasswordEncoder pe;
 
     public Cliente find(Integer id) {
+
+        UserSS user = UserService.authenticated();
+        if (user==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+            throw new AuthorizationException("Acesso negado");
+        }
         Optional<Cliente> obj = repo.findById(id);
         return obj.orElse(null);
     }

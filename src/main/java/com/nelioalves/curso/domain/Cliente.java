@@ -43,9 +43,6 @@ public class Cliente implements Serializable {
     @JsonIgnore
     private List<Pedido> pedidos = new ArrayList<>();
 
-
-    private String imgUrl;
-
     public Cliente(){
         addPerfil(Perfil.CLIENTE);
     }
@@ -88,14 +85,6 @@ public class Cliente implements Serializable {
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = (tipo == null) ? null : tipo.getCod();
         addPerfil(Perfil.CLIENTE);
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
     }
 
     public void setPerfis(Set<Integer> perfis) {

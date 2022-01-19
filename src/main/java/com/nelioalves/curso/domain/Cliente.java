@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.nelioalves.curso.enums.Perfil;
 import com.nelioalves.curso.enums.TipoCliente;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -42,6 +43,7 @@ public class Cliente implements Serializable {
     @OneToMany(mappedBy = "cliente")
     @JsonIgnore
     private List<Pedido> pedidos = new ArrayList<>();
+
 
     public Cliente(){
         addPerfil(Perfil.CLIENTE);

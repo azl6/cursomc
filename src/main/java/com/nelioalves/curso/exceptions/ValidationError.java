@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ValidationError extends StandardError{
+
     private List<FieldMessage> errors = new ArrayList<>();
-    public ValidationError(Integer httpStatus, String errorMessage, long timeStamp) {
-        super(httpStatus, errorMessage, timeStamp);
+
+    public ValidationError(long timeStamp, Integer status, String error, String message, String path) {
+        super(timeStamp, status, error, message, path);
     }
 
     public List<FieldMessage> getErrors() {

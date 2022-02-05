@@ -10,6 +10,8 @@ import java.io.Serializable;
 @ClienteInsert
 public class ClienteNewDTO implements Serializable {
 
+    public ClienteNewDTO(){}
+
     @NotEmpty(message = "Preenchimento obrigatório")
     @Length(min = 5, max = 120, message = "O nome deve ter entre 5 e 120 caracteres")
     private String nome;

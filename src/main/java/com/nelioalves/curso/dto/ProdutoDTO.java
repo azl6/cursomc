@@ -4,18 +4,22 @@ import com.nelioalves.curso.domain.Produto;
 
 import java.io.Serializable;
 
+
+
 public class ProdutoDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Integer id;
     private String nome;
-    private Double preço;
+    private Double preco;
 
-    public ProdutoDTO(){
+    public ProdutoDTO() {
     }
 
     public ProdutoDTO(Produto obj) {
-        this.id = obj.getId();
-        this.nome = obj.getNome();
-        this.preço = obj.getPreço();
+        id = obj.getId();
+        nome = obj.getNome();
+        preco = obj.getPreco();
     }
 
     public Integer getId() {
@@ -34,11 +38,11 @@ public class ProdutoDTO implements Serializable {
         this.nome = nome;
     }
 
-    public Double getPreço() {
-        return preço;
+    public Double getPreco() {
+        return preco;
     }
 
-    public void setPreço(Double preço) {
-        this.preço = preço;
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 }

@@ -92,7 +92,7 @@ public class Cliente implements Serializable {
     public void setPerfis(Set<Integer> perfis) {
         this.perfis = perfis;
     }
-    
+
 
     public String getSenha() {
         return senha;
